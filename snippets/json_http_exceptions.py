@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.errorhandler(HTTPException)
 def http_exception_handler(e):
-    return {'code': e.code, 'description': e.description}
+    return {'code': e.code, 'description': e.description}, e.code
 
 if __name__ == '__main__':
     app.run(debug=True)
